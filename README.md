@@ -2,7 +2,7 @@
 
 A web tool for calculating low-pass filter values for STM32 sinusoidal PWM outputs.
 
-![Screenshot](screenshot.png)
+<!-- ![Screenshot](screenshot.png)-->
 
 ## What it does
 
@@ -27,7 +27,7 @@ The tool shows you:
 
 ## Live version
 
-[https://alireza-jahanbakhshi.github.io/spwm-filter-designer/
+[https://alireza-jahanbakhshi.github.io/SPWM_Filter_Designer//
 ](https://alireza-jahanbakhshi.github.io/SPWM_Filter_Designer/)
 ## Built with
 
