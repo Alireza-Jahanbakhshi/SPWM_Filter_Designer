@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPWM Filter Designer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <div class="logo">
+                <span class="logo-icon">⚡</span>
+                <span class="logo-text">SPWM Filter Designer</span>
+            </div>
+            <p class="subtitle">Low-pass filter calculator for STM32 sinusoidal PWM outputs</p>
+        </header>
+
+        <div class="grid">
+            <div class="panel panel-input">
+                <h2>System Parameters</h2>
+                
+                <div class="field">
+                    <label>PWM Frequency (Hz)</label>
+                    <input type="number" id="pwmFreq" value="15625" step="100">
+                    <small>Your timer's carrier frequency</small>
+                </div>
+
+                <div class="field">
+                    <label>Sine Frequency (Hz)</label>
+                    <input type="number" id="sineFreq" value="50" step="1">
+                    <small>Desired output frequency</small>
+                </div>
+
+                <div class="field">
+                    <label>Supply Voltage (V)</label>
+                    <input type="number" id="vcc" value="3.3" step="0.1">
+                    <small>STM32 VCC (3.3V or 5V)</small>
+                </div>
+
+                <div class="field">
+                    <label>Load Resistance (Ω)</label>
+                    <input type="number" id="loadR" value="100" step="10">
+                    <small>For LC filter design</small>
+                </div>
+
+                <div class="field">
+                    <label>Filter Type</label>
+                    <select id="filterType">
+                        <option value="rc">RC (Testing)</option>
+                        <option value="lc" selected>LC (Power)</option>
+                        <option value="rlc">RLC (Damped)</option>
+                    </select>
+                </div>
+
+                <div class="field">
+                    <label>Attenuation Target (dB)</label>
+                    <input type="number" id="attenuation" value="40" min="20" max="80" step="5">
+                    <small>Higher = cleaner but larger components</small>
+                </div>
+
+                <button id="calculateBtn" class="btn">Calculate</button>
+            </div>
+
+            <div class="panel panel-results">
+                <h2>Filter Values</h2>
+                <div id="results">
+                    <div class="empty-state">
+                        <span class="empty-icon">📐</span>
+                        <p>Enter parameters and hit Calculate</p>
+                    </div>
+                </div>
+
+                <div id="circuit" style="display:none;">
+                    <h3>Connection Diagram</h3>
+                    <pre id="diagram" class="diagram"></pre>
+                </div>
+
+                <div id="parts" style="display:none;">
+                    <h3>Components</h3>
+                    <div id="partsList" class="parts-list"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel panel-chart">
+            <h2>Frequency Response</h2>
+            <div class="chart-wrap">
+                <canvas id="bodePlot"></canvas>
+            </div>
+            <div class="chart-tools">
+                <button id="zoomIn" class="btn-sm">Zoom In</button>
+                <button id="zoomOut" class="btn-sm">Zoom Out</button>
+                <button id="resetZoom" class="btn-sm">Reset</button>
+            </div>
+        </div>
+
+        <div class="panel panel-compare">
+            <h2>Filter Comparison</h2>
+            <div id="compareTable"></div>
+        </div>
+
+        <footer>
+            <p>Made by <a href="https://github.com/Alireza-Jahanbakhshi">Alireza Jahanbakhshi</a> · 
+            <a href="https://github.com/Alireza-Jahanbakhshi/spwm-filter-designer">View on GitHub</a></p>
+        </footer>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
