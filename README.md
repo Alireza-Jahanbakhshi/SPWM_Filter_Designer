@@ -27,8 +27,7 @@ The tool shows you:
 
 ## Live version
 
-[https://alireza-jahanbakhshi.github.io/SPWM_Filter_Designer//
-](https://alireza-jahanbakhshi.github.io/SPWM_Filter_Designer/)
+[https://alireza-jahanbakhshi.github.io/SPWM_Filter_Designer/](https://alireza-jahanbakhshi.github.io/SPWM_Filter_Designer/)
 ## Built with
 
 - Plain HTML + CSS + JavaScript
